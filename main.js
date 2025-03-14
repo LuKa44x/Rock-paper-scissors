@@ -40,6 +40,7 @@ function playRound(getHumanChoice, getComputerChoice){
     else if (getHumanChoice == "scissors" && getComputerChoice == "paper"){
         humanScore++;
     }
+    console.log("You chose: " + getHumanChoice + " Computer chose: " + getComputerChoice);
     console.log("Human score: " + humanScore + " Computer score: " + computerScore);
 }
 
