@@ -1,6 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
-
+let humanSelection  ;
+let computerSelection ;
 
 function getComputerChoice() {
     let computerAnswer;
@@ -8,7 +9,7 @@ function getComputerChoice() {
     if (random == 1) { computerAnswer = "rock";}
     else if (random == 2) { computerAnswer = "paper";}
     else{ computerAnswer = "scissors";}
-    return computerAnswer;
+    return computerAnswer.toLowerCase();
 }
 
 function getHumanChoice(){
@@ -42,9 +43,15 @@ function playRound(getHumanChoice, getComputerChoice){
     console.log("Human score: " + humanScore + " Computer score: " + computerScore);
 }
 
+function playGame(){
+    for (let i =0;i<5;i++){
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        
+    }
+}
 
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-console.log(playRound(humanSelection, computerSelection));
+playGame();
