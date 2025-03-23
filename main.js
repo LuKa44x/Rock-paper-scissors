@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
-let humanSelection  ;
-let computerSelection ;
+let humanSelection ;
+let computerSelection;
 
 function getComputerChoice() {
     let computerAnswer;
@@ -44,7 +44,7 @@ function playRound(getHumanChoice, getComputerChoice){
     console.log("Human score: " + humanScore + " Computer score: " + computerScore);
 }
 
-function playGame(){
+/*function playGame(){
     for (let i =0;i<5;i++){
         humanSelection = getHumanChoice();
         computerSelection = getComputerChoice();
@@ -55,4 +55,21 @@ function playGame(){
 
 
 
-playGame();
+playGame(); */
+
+
+
+let rockSelection = document.querySelector("#rock");
+rockSelection.addEventListener("click", ()=>{
+    playRound("rock", getComputerChoice())
+});
+
+let paperSelection = document.querySelector("#paper");
+paperSelection.addEventListener("click", ()=>{
+    playRound("paper", getComputerChoice())
+});
+
+let scissorsSelection = document.querySelector("#scissors");
+scissorsSelection.addEventListener("click", ()=>{
+    playRound("scissors", getComputerChoice())
+});
