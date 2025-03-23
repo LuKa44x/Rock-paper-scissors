@@ -48,6 +48,22 @@ function playRound(getHumanChoice, getComputerChoice){
     divResult.innerHTML=("You chose: " + getHumanChoice + " Computer chose: " + getComputerChoice + "<br>" +                //.innerHTML instead of .textContent, tag <br> for go in the second line (\n works only in the console)
                            "Human score: " + humanScore + " Computer score: " + computerScore
     );
+    winnerCheck();
+}
+
+function winnerCheck(){
+    if (humanScore==5) {
+        document.querySelectorAll("button").forEach(button =>{
+            button.disabled = true;
+        });
+        return divResult.textContent=("Human win! " + "Human score: " + humanScore + " Computer score: " + computerScore + " (" + tieCounter + " draws in total)");
+    }
+    else if(computerScore==5) {
+        document.querySelectorAll("button").forEach(button =>{
+            button.disabled = true;
+        });
+        return divResult.textContent=("Computer win! " + "Human score: " + humanScore + " Computer score: " + computerScore + " (" + tieCounter + " draws in total)");
+    }
 }
 
 /*function playGame(){
@@ -65,18 +81,18 @@ playGame(); */
 
 
 
-let rockSelection = document.querySelector("#rock");
-rockSelection.addEventListener("click", ()=>{
+let rockBtn = document.querySelector("#rock");
+rockBtn.addEventListener("click", ()=>{
     playRound("rock", getComputerChoice())
 });
 
-let paperSelection = document.querySelector("#paper");
-paperSelection.addEventListener("click", ()=>{
+let paperBtn = document.querySelector("#paper");
+paperBtn.addEventListener("click", ()=>{
     playRound("paper", getComputerChoice())
 });
 
-let scissorsSelection = document.querySelector("#scissors");
-scissorsSelection.addEventListener("click", ()=>{
+let scissorsBtn = document.querySelector("#scissors");
+scissorsBtn.addEventListener("click", ()=>{
     playRound("scissors", getComputerChoice())
 });
 
