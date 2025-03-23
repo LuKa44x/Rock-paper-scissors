@@ -2,6 +2,10 @@ let humanScore = 0;
 let computerScore = 0;
 let humanSelection ;
 let computerSelection;
+let tieCounter=0;
+
+
+
 
 function getComputerChoice() {
     let computerAnswer;
@@ -19,8 +23,9 @@ function getHumanChoice(){
 }
 
 function playRound(getHumanChoice, getComputerChoice){
+    divTie.textContent= ('');
     if (getHumanChoice == getComputerChoice){
-        console.log( "It's a tie!");
+        divTie.textContent=( "It's a tie! (" + ++tieCounter + ")");
     }
     else if (getHumanChoice == "rock" && getComputerChoice == "scissors"){
         humanScore++;
@@ -40,8 +45,9 @@ function playRound(getHumanChoice, getComputerChoice){
     else if (getHumanChoice == "scissors" && getComputerChoice == "paper"){
         humanScore++;
     }
-    console.log("You chose: " + getHumanChoice + " Computer chose: " + getComputerChoice);
-    console.log("Human score: " + humanScore + " Computer score: " + computerScore);
+    divResult.innerHTML=("You chose: " + getHumanChoice + " Computer chose: " + getComputerChoice + "<br>" +                //.innerHTML instead of .textContent, tag <br> for go in the second line (\n works only in the console)
+                           "Human score: " + humanScore + " Computer score: " + computerScore
+    );
 }
 
 /*function playGame(){
@@ -73,3 +79,6 @@ let scissorsSelection = document.querySelector("#scissors");
 scissorsSelection.addEventListener("click", ()=>{
     playRound("scissors", getComputerChoice())
 });
+
+let divResult = document.querySelector(".result");
+let divTie = document.querySelector(".tie");
